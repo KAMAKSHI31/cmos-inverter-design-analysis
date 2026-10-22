@@ -1,0 +1,17 @@
+
+* CMOS Inverter - Transient Analysis
+
+VDD vdd 0 DC 1.8
+VIN in 0 PULSE(0 1.8 0 100p 100p 5n 10n)
+
+MP out in vdd vdd PMOS W=2u L=180n
+MN out in 0 0 NMOS W=1u L=180n
+
+.model NMOS NMOS (LEVEL=1 VTO=0.45 KP=200u LAMBDA=0.02)
+.model PMOS PMOS (LEVEL=1 VTO=-0.45 KP=100u LAMBDA=0.02)
+
+CLOAD out 0 10f
+
+.tran 0 40n 0 10p
+
+.end
