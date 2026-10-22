@@ -1,0 +1,15 @@
+
+* CMOS Inverter - DC Analysis
+
+VDD vdd 0 DC 1.8
+VIN in 0 DC 0
+
+MP out in vdd vdd PMOS W=2u L=180n
+MN out in 0 0 NMOS W=1u L=180n
+
+.model NMOS NMOS (LEVEL=1 VTO=0.45 KP=200u LAMBDA=0.02)
+.model PMOS PMOS (LEVEL=1 VTO=-0.45 KP=100u LAMBDA=0.02)
+
+.dc VIN 0 1.8 0.01
+
+.end
